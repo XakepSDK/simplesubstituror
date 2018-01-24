@@ -1,5 +1,6 @@
 package dk.xakeps.simplesubstitutor;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Player {
@@ -35,5 +36,30 @@ public class Player {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return level == player.level &&
+                Objects.equals(id, player.id) &&
+                Objects.equals(name, player.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, level);
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", level=" + level +
+                '}';
     }
 }
