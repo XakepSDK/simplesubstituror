@@ -37,7 +37,7 @@ public class Main {
     private static final class BeanResolver extends StrLookup<Object> {
         private final Object holder;
 
-        BeanResolver(Object holder) {
+        private BeanResolver(Object holder) {
             this.holder = holder;
         }
 
